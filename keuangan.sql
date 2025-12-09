@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 30, 2019 at 08:11 AM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Host: localhost
+-- Waktu pembuatan: 09 Des 2025 pada 09.53
+-- Versi server: 8.0.37
+-- Versi PHP: 8.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,18 +24,18 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Struktur dari tabel `admin`
 --
 
 CREATE TABLE `admin` (
-  `id_admin` int(11) NOT NULL,
+  `id_admin` int NOT NULL,
   `nama` varchar(40) NOT NULL,
   `email` varchar(40) NOT NULL,
   `pass` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `admin`
+-- Dumping data untuk tabel `admin`
 --
 
 INSERT INTO `admin` (`id_admin`, `nama`, `email`, `pass`) VALUES
@@ -46,16 +45,16 @@ INSERT INTO `admin` (`id_admin`, `nama`, `email`, `pass`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `catatan`
+-- Struktur dari tabel `catatan`
 --
 
 CREATE TABLE `catatan` (
-  `id_catatan` int(11) NOT NULL,
+  `id_catatan` int NOT NULL,
   `catatan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `catatan`
+-- Dumping data untuk tabel `catatan`
 --
 
 INSERT INTO `catatan` (`id_catatan`, `catatan`) VALUES
@@ -67,55 +66,44 @@ INSERT INTO `catatan` (`id_catatan`, `catatan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hutang`
+-- Struktur dari tabel `hutang`
 --
 
 CREATE TABLE `hutang` (
-  `id_hutang` int(11) NOT NULL,
-  `jumlah` int(11) NOT NULL,
+  `id_hutang` int NOT NULL,
+  `jumlah` int NOT NULL,
   `tgl_hutang` date NOT NULL,
   `alasan` text NOT NULL,
   `penghutang` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `hutang`
+-- Dumping data untuk tabel `hutang`
 --
 
 INSERT INTO `hutang` (`id_hutang`, `jumlah`, `tgl_hutang`, `alasan`, `penghutang`) VALUES
-(2, 1000000, '2019-10-17', 'Pinjam', 'riza'),
-(4, 100000, '2019-10-18', 'tunggu gajian', 'lufias'),
 (5, 0, '2019-10-19', '', ''),
 (6, 0, '2019-10-20', '', ''),
-(7, 200000, '2019-10-21', 'sakit', 'saiful'),
-(8, 30000, '2019-10-22', 'berobat', 'saiful riza'),
 (9, 0, '2019-10-23', '', ''),
-(10, 20000, '2019-10-24', 'beli domain', 'yusril'),
-(11, 120000, '2019-10-25', 'arifinal', 'untuk beli hosting'),
-(12, 2500000, '2019-10-26', 'azir', 'untuk beli hosting'),
-(13, 70000, '2019-10-25', 'Riza', 'Mau jalan jalan'),
-(14, 50000, '0000-00-00', 'Riza', 'Beli rokok'),
-(15, 40000, '2019-10-27', 'Riza', 'Uang Bensi'),
-(16, 80000, '2019-10-28', 'Riza', 'Mau Nikahan'),
-(17, 1000000, '2019-10-29', 'Riza', 'Biaya lahiran anak');
+(25, 3000000, '2025-12-08', 'beli crypto', 'anto');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `karyawan`
+-- Struktur dari tabel `karyawan`
 --
 
 CREATE TABLE `karyawan` (
-  `id_karyawan` int(11) NOT NULL,
+  `id_karyawan` int NOT NULL,
   `nama` varchar(40) NOT NULL,
   `posisi` varchar(40) NOT NULL,
   `alamat` varchar(40) NOT NULL,
-  `umur` int(11) NOT NULL,
+  `umur` int NOT NULL,
   `kontak` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `karyawan`
+-- Dumping data untuk tabel `karyawan`
 --
 
 INSERT INTO `karyawan` (`id_karyawan`, `nama`, `posisi`, `alamat`, `umur`, `kontak`) VALUES
@@ -125,93 +113,59 @@ INSERT INTO `karyawan` (`id_karyawan`, `nama`, `posisi`, `alamat`, `umur`, `kont
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pemasukan`
+-- Struktur dari tabel `pemasukan`
 --
 
 CREATE TABLE `pemasukan` (
-  `id_pemasukan` int(11) NOT NULL,
+  `id_pemasukan` int NOT NULL,
   `tgl_pemasukan` date NOT NULL,
-  `jumlah` int(11) NOT NULL,
-  `id_sumber` int(11) NOT NULL
+  `jumlah` int NOT NULL,
+  `id_sumber` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pemasukan`
+-- Dumping data untuk tabel `pemasukan`
 --
 
 INSERT INTO `pemasukan` (`id_pemasukan`, `tgl_pemasukan`, `jumlah`, `id_sumber`) VALUES
-(1, '2019-10-16', 100000, 1),
-(2, '2019-10-24', 500000, 1),
-(3, '2019-10-17', 200000, 5),
-(4, '2019-10-18', 400000, 3),
-(5, '2019-10-19', 5000000, 1),
-(6, '2019-10-20', 100000, 4),
-(7, '2019-10-21', 2300000, 3),
-(8, '2019-10-22', 2000000, 2),
-(9, '2019-10-23', 1500000, 5),
-(10, '2019-10-15', 100000, 1),
-(13, '2019-10-17', 200000, 1),
-(14, '2019-10-09', 200000, 1),
-(15, '2019-10-19', 200000, 3),
-(16, '2019-10-02', 200000, 4),
-(17, '2019-10-07', 20000, 5),
-(18, '2019-10-26', 50000, 1),
-(19, '2019-10-27', 2000000, 2),
-(20, '2019-10-28', 590000, 3),
-(21, '2019-10-29', 600000, 4),
-(22, '2019-10-30', 600000, 5),
-(23, '2019-10-25', 7000000, 1);
+(29, '2025-12-08', 300000, 4),
+(30, '2025-12-09', 200000, 4),
+(31, '2025-12-09', 3000000, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengeluaran`
+-- Struktur dari tabel `pengeluaran`
 --
 
 CREATE TABLE `pengeluaran` (
-  `id_pengeluaran` int(11) NOT NULL,
+  `id_pengeluaran` int NOT NULL,
   `tgl_pengeluaran` date NOT NULL,
-  `jumlah` int(11) NOT NULL,
-  `id_sumber` int(11) NOT NULL
+  `jumlah` int NOT NULL,
+  `id_sumber` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pengeluaran`
+-- Dumping data untuk tabel `pengeluaran`
 --
 
 INSERT INTO `pengeluaran` (`id_pengeluaran`, `tgl_pengeluaran`, `jumlah`, `id_sumber`) VALUES
-(1, '2019-10-22', 1100000, 10),
-(3, '2019-10-16', 200000, 7),
-(4, '2019-10-17', 3000000, 6),
-(5, '2019-10-18', 100000, 7),
-(6, '2019-10-19', 150000, 6),
-(7, '2019-10-20', 100000, 7),
-(8, '2019-10-21', 150000, 6),
-(9, '2019-10-23', 123000, 9),
-(10, '2019-10-15', 600000, 6),
-(11, '2019-10-13', 20000, 7),
-(12, '2019-10-12', 300000, 9),
-(13, '2019-10-24', 500000, 8),
-(14, '2019-10-30', 121212, 6),
-(15, '2019-10-25', 60000, 6),
-(16, '2019-10-26', 70000, 7),
-(17, '2019-10-27', 60000, 8),
-(18, '2019-10-28', 78000, 9),
-(19, '2019-10-29', 79000, 10);
+(23, '2025-12-08', 200000, 9),
+(24, '2025-12-09', 3000000, 9);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sumber`
+-- Struktur dari tabel `sumber`
 --
 
 CREATE TABLE `sumber` (
-  `id_sumber` int(11) NOT NULL,
+  `id_sumber` int NOT NULL,
   `nama` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `sumber`
+-- Dumping data untuk tabel `sumber`
 --
 
 INSERT INTO `sumber` (`id_sumber`, `nama`) VALUES
@@ -229,19 +183,19 @@ INSERT INTO `sumber` (`id_sumber`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `uang`
+-- Struktur dari tabel `uang`
 --
 
 CREATE TABLE `uang` (
-  `id_uang` int(11) NOT NULL,
+  `id_uang` int NOT NULL,
   `tgl_uang` date NOT NULL,
-  `id_pengeluaran` int(11) DEFAULT NULL,
-  `id_pendapatan` int(11) DEFAULT NULL,
-  `jumlah` int(11) NOT NULL
+  `id_pengeluaran` int DEFAULT NULL,
+  `id_pendapatan` int DEFAULT NULL,
+  `jumlah` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `uang`
+-- Dumping data untuk tabel `uang`
 --
 
 INSERT INTO `uang` (`id_uang`, `tgl_uang`, `id_pengeluaran`, `id_pendapatan`, `jumlah`) VALUES
@@ -253,106 +207,106 @@ INSERT INTO `uang` (`id_uang`, `tgl_uang`, `id_pengeluaran`, `id_pendapatan`, `j
 --
 
 --
--- Indexes for table `admin`
+-- Indeks untuk tabel `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
--- Indexes for table `catatan`
+-- Indeks untuk tabel `catatan`
 --
 ALTER TABLE `catatan`
   ADD PRIMARY KEY (`id_catatan`);
 
 --
--- Indexes for table `hutang`
+-- Indeks untuk tabel `hutang`
 --
 ALTER TABLE `hutang`
   ADD PRIMARY KEY (`id_hutang`);
 
 --
--- Indexes for table `karyawan`
+-- Indeks untuk tabel `karyawan`
 --
 ALTER TABLE `karyawan`
   ADD PRIMARY KEY (`id_karyawan`);
 
 --
--- Indexes for table `pemasukan`
+-- Indeks untuk tabel `pemasukan`
 --
 ALTER TABLE `pemasukan`
   ADD PRIMARY KEY (`id_pemasukan`),
   ADD KEY `id_sumber` (`id_sumber`);
 
 --
--- Indexes for table `pengeluaran`
+-- Indeks untuk tabel `pengeluaran`
 --
 ALTER TABLE `pengeluaran`
   ADD PRIMARY KEY (`id_pengeluaran`),
   ADD KEY `id_sumber` (`id_sumber`);
 
 --
--- Indexes for table `sumber`
+-- Indeks untuk tabel `sumber`
 --
 ALTER TABLE `sumber`
   ADD PRIMARY KEY (`id_sumber`);
 
 --
--- Indexes for table `uang`
+-- Indeks untuk tabel `uang`
 --
 ALTER TABLE `uang`
   ADD PRIMARY KEY (`id_uang`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `admin`
+-- AUTO_INCREMENT untuk tabel `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_admin` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `catatan`
+-- AUTO_INCREMENT untuk tabel `catatan`
 --
 ALTER TABLE `catatan`
-  MODIFY `id_catatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_catatan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `hutang`
+-- AUTO_INCREMENT untuk tabel `hutang`
 --
 ALTER TABLE `hutang`
-  MODIFY `id_hutang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_hutang` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT for table `karyawan`
+-- AUTO_INCREMENT untuk tabel `karyawan`
 --
 ALTER TABLE `karyawan`
-  MODIFY `id_karyawan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_karyawan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `pemasukan`
+-- AUTO_INCREMENT untuk tabel `pemasukan`
 --
 ALTER TABLE `pemasukan`
-  MODIFY `id_pemasukan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_pemasukan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
--- AUTO_INCREMENT for table `pengeluaran`
+-- AUTO_INCREMENT untuk tabel `pengeluaran`
 --
 ALTER TABLE `pengeluaran`
-  MODIFY `id_pengeluaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_pengeluaran` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT for table `sumber`
+-- AUTO_INCREMENT untuk tabel `sumber`
 --
 ALTER TABLE `sumber`
-  MODIFY `id_sumber` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_sumber` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `uang`
+-- AUTO_INCREMENT untuk tabel `uang`
 --
 ALTER TABLE `uang`
-  MODIFY `id_uang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_uang` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -41,6 +41,7 @@ $pemasukan_hari_ini = mysqli_fetch_array($pemasukan_hari_ini);
 
 
 $pemasukan=mysqli_query($koneksi,"SELECT * FROM pemasukan");
+$arraymasuk = [];
 while ($masuk=mysqli_fetch_array($pemasukan)){
 $arraymasuk[] = $masuk['jumlah'];
 }
@@ -48,6 +49,7 @@ $jumlahmasuk = array_sum($arraymasuk);
 
 
 $pengeluaran=mysqli_query($koneksi,"SELECT * FROM pengeluaran");
+$arraykeluar = [];
 while ($keluar=mysqli_fetch_array($pengeluaran)){
 $arraykeluar[] = $keluar['jumlah'];
 }
@@ -125,7 +127,7 @@ $tujuhhari= mysqli_fetch_array($tujuhhari);
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Pendapatan (Hari Ini)</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">Rp.<?=number_format($pemasukan_hari_ini['0'],2,',','.');?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">Rp.<?=number_format($pemasukan_hari_ini['0'] ?? 0,2,',','.');?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -145,7 +147,7 @@ $tujuhhari= mysqli_fetch_array($tujuhhari);
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Pengeluaran (Hari Ini)</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">Rp.<?=number_format($pengeluaran_hari_ini['0'],2,',','.');?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">Rp.<?=number_format($pengeluaran_hari_ini['0'] ?? 0 ,2,',','.');?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -176,27 +178,8 @@ $tujuhhari= mysqli_fetch_array($tujuhhari);
                     </div>
                   </div>
 
-                </div><div class="col">
-                          <div class="progress progress-sm mr-2">
-						  <?php
-						  if ($uang < 1 ){
-							  $warna = 'danger';
-							  $value = 0;
-						  }
-						  else if ($uang >= 1 && $uang < 1000000){
-						  $warna = 'warning';
-						  $value = 1;
-						  }
-						  else{
-							  $warna = 'info';
-							  $value = $uang / 10000;
-						  };
-						  
-						  ?>
-						  
-                            <div class="progress-bar bg-<?=$warna?>" role="progressbar" style="width: 100%" aria-valuenow="<?=$value?>" aria-valuemin="0" aria-valuemax="100"><span><?=$value?> % </span></div>
-                          </div>
-                        </div>
+                </div>
+                
               </div>
             </div>
 

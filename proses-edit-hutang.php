@@ -10,7 +10,6 @@ $alasan = $_POST['alasan'];
 $penghutang = $_POST['penghutang'];
 
 //query update
-$query = mysqli_query($koneksi,"UPDATE hutang SET jumlah='$jumlah' , tgl_hutang='$tgl', alasan='$alasan', penghutang='$penghutang' WHERE id_hutang='$id' ");
 
  define('LOG','log.txt');
 function write_log($log){  

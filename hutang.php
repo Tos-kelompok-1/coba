@@ -249,38 +249,7 @@ while ($row = mysqli_fetch_array($query_edit)) {
 
 
 <!-- Modal -->
-  <div id="myModalTambah" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-
-      <!-- konten modal-->
-      <div class="modal-content">
-        <!-- heading modal -->
-        <div class="modal-header">
-          <h4 class="modal-title">Tambah Hutang</h4>
-		    <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <!-- body modal -->
-		<form action="tambah-hutang.php" method="post">
-        <div class="modal-body">
-		Jumlah : 
-         <input type="text" class="form-control" name="jumlah">
-		Tanggal : 
-         <input type="date" class="form-control" name="tgl_hutang">
-		 Penghutang : 
-         <input type="text" class="form-control" name="penghutang">
-		Alasan : 
-         <input type="text" class="form-control" name="alasan">
-        </div>
-        <!-- footer modal -->
-        <div class="modal-footer">
-		<button type="submit" class="btn btn-success" >Tambah</button>
-		</form>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Keluar</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
+  
 
 
 <?php               
@@ -314,7 +283,38 @@ while ($row = mysqli_fetch_array($query_edit)) {
   <!-- Logout Modal-->
 <?php require 'logout-modal.php';?>
 
- 
+ <div id="myModalTambah" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- konten modal-->
+      <div class="modal-content">
+        <!-- heading modal -->
+        <div class="modal-header">
+          <h4 class="modal-title">Tambah Hutang</h4>
+		    <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- body modal -->
+		<form action="tambah-hutang.php" method="post">
+        <div class="modal-body">
+		Jumlah : 
+         <input type="text" class="form-control" name="jumlah">
+		Tanggal : 
+         <input type="date" class="form-control" name="tgl_hutang">
+		 Penghutang : 
+         <input type="text" class="form-control" name="penghutang">
+		Alasan : 
+         <input type="text" class="form-control" name="alasan">
+        </div>
+        <!-- footer modal -->
+        <div class="modal-footer">
+		<button type="submit" class="btn btn-success" >Tambah</button>
+		</form>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Keluar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>

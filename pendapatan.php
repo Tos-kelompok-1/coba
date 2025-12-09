@@ -63,30 +63,35 @@ require ('sidebar.php'); ?>
 				$namasumber5 = mysqli_query($koneksi,"SELECT * FROM `sumber` where id_sumber= 5 ");
 				$sumbern5= mysqli_fetch_assoc($namasumber5);
 				
+        $arrayhasil1 = [];
 				$hasil1=mysqli_query($koneksi,"SELECT * FROM pemasukan where id_sumber = 1");
 				while ($jumlah1=mysqli_fetch_array($hasil1)){
 				$arrayhasil1[] = $jumlah1['jumlah'];
 				}
 				$jumlahhasil1 = array_sum($arrayhasil1);
 				
+        $arrayhasil2 = [];
 				$hasil2=mysqli_query($koneksi,"SELECT * FROM pemasukan where id_sumber = 2");
 				while ($jumlah2=mysqli_fetch_array($hasil2)){
 				$arrayhasil2[] = $jumlah2['jumlah'];
 				}
 				$jumlahhasil2 = array_sum($arrayhasil2);
 				
+        $arrayhasil3 = [];
 				$hasil3=mysqli_query($koneksi,"SELECT * FROM pemasukan where id_sumber = 3");
 				while ($jumlah3=mysqli_fetch_array($hasil3)){
 				$arrayhasil3[] = $jumlah3['jumlah'];
 				}
 				$jumlahhasil3 = array_sum($arrayhasil3);
 				
+        $arrayhasil4 = [];
 				$hasil4=mysqli_query($koneksi,"SELECT * FROM pemasukan where id_sumber = 4");
 				while ($jumlah4=mysqli_fetch_array($hasil4)){
 				$arrayhasil4[] = $jumlah4['jumlah'];
 				}
 				$jumlahhasil4 = array_sum($arrayhasil4);
 				
+        $arrayhasil5 = [];
 				$hasil5=mysqli_query($koneksi,"SELECT * FROM pemasukan where id_sumber = 5");
 				while ($jumlah5=mysqli_fetch_array($hasil5)){
 				$arrayhasil5[] = $jumlah5['jumlah'];
@@ -322,7 +327,41 @@ echo '<option value="'.$no++.'">'.$noo++.'.'.$querynama["nama"].'</option>';
 
 
  <!-- Modal -->
-  <div id="myModalTambah" class="modal fade" role="dialog">
+  
+
+
+
+<?php               
+} 
+?>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+		  </div>
+
+
+       </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+<?php require 'footer.php'?>
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+<div id="myModalTambah" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
       <!-- konten modal-->
@@ -358,39 +397,7 @@ echo '<option value="'.$no++.'">'.$noo++.'.'.$querynama["nama"].'</option>';
 
     </div>
   </div>
-
-
-
-<?php               
-} 
-?>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-		  </div>
-
-
-       </div>
-        <!-- /.container-fluid -->
-
-      </div>
-      <!-- End of Main Content -->
-
-<?php require 'footer.php'?>
-
-    </div>
-    <!-- End of Content Wrapper -->
-
-  </div>
-  <!-- End of Page Wrapper -->
-
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
-
+  
   <!-- Logout Modal-->
 <?php require 'logout-modal.php';?>
 
